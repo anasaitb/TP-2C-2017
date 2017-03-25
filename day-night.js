@@ -1,30 +1,32 @@
 const EventEmitter = require('events').EventEmitter;
 const day = new EventEmitter();
 
-class Daynight
+
+class DayNight
 {
     constructor()
     {
 
-
         this.hours = 0;
 
-        this.nuit = null;
-
-        this.heureintervale = setInterval(() => this.heure(), 240);
+        this.heureintervalle = setInterval(() => this.hours(), 10);
 
     }
 
-    heure(){
+    h(){
     this.hours++;
 
-    if(this.hours == 8){
+    if(this.hours == 1){
         day.emit('change','day');
-        } else if (this.hours == 22){
-        day.emit('change','night');
-        }
+        } else if (this.hours == 3) day.emit('change', 'night');
+    }
+
+    c(){
+      clearInterval(this.heureintervalle);
     }
 }
 
 
+
+module.exports = {DayNight,day};
 

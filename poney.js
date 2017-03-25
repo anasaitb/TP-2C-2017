@@ -1,28 +1,20 @@
-const {SpiderMan} = require('./spiderman');
 const {DeadPool} = require('./deadpool');
 
-class Poney {
+
+IsUnicorn = false;
+
+class Pony {
+  Unicorn;
+  repose;
   constructor() {
     this.energy = 0;
-    this.isUnicorn = false;
+    this.Unicorn = false;
     this.deadpool = new DeadPool();
     this.deadpool.poneyList.push(this);
-    this.repos = setInterval(() => this.gatherEnergy(), 1000);
+    this.repose = setInterval(() => this.gatherEnergy(), 1000);
 
-
-    /* if (CreationDeadPool && CreationSpiderman && TransformationLicorn)
-     {
-     TransformationLicorn = new Licorn();
-     CreationSpiderman = new SpiderMan();
-     CreationDeadPool = new DeadPool();
-     }*/
 
   }
-
-  destructor() {
-
-  }
-
 
   gatherEnergy() {
       this.energy += 10;
@@ -35,7 +27,7 @@ class Poney {
     this.energy = 0;
     this.deadpool.helpToTransform()
       .then(() => {
-        this.isUnicorn = true;
+        this.Unicorn = true;
       })
       .catch(() => {
 
@@ -44,4 +36,4 @@ class Poney {
 }
 
 
-module.exports = {Poney};
+module.exports = {Pony};
